@@ -1,0 +1,48 @@
+{% extends 'user/base_user.html' %}
+{% block head %}
+<title>Welcome</title>
+{% endblock %}
+{% block content %}
+   <h2>Book Details</h2>
+
+   <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for i in results %}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{i.title.capitalize()}}</h5>
+          <p class="card-text">From {{i.author}}</p>
+          <p class="card-text">Price {{i.price}}</p>
+          <a href="/buy/{{i.id}}" class="btn btn-outline-primary" role="button">Buy</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">In Stock: {{i.stock}}</small>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<!-- Uncomment For Table
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Book ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Price</th>
+      <th scope="col">Stock Available</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in results %}
+    <tr>
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.title}}</td>
+      <td>{{i.author}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.stock}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> -->
+{% endblock %}

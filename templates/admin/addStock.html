@@ -1,0 +1,18 @@
+{% extends 'admin/base_admin.html' %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+{% block head %}
+<title>Welcome</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+{% endblock %}
+{% block content %}
+    
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+<h1>Add Books</h1>
+
+<form action="/addNewStock" method="post">
+    {{ render_field_with_errors(form.title) }}
+    {{ render_field_with_errors(form.stock) }}
+    {{ form.submit }}
+</form>
+</div>
+{% endblock %}
